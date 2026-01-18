@@ -139,6 +139,22 @@
       <div class="counter">Quote #<span id="counter">0</span></div>
     </div>
 
+    <div class="submit-section">
+            <h2>Prisimeni kitą Mato citatą?</h2>
+            <p>Pasidalink su mumis!</p>
+            
+            <form action="https://formsubmit.co/ignas.bilius@gmail.com" method="POST" class="quote-form">
+                <input type="hidden" name="_subject" value="Nauja Mato citata!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <input type="text" name="name" placeholder="Tavo vardas (neprivaloma)" class="quote-input">
+                <textarea name="quote" placeholder="Mato citata..." required class="quote-input"></textarea>
+                <button type="submit" class="submit-button">Siųsti citatą</button>
+            </form>
+        </div>
+    </div>
+
     <script>
       const quotes = [
         'Jeigu gyventi, tai tik prie jūros',
