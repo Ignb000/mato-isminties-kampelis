@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mato išminties kampelis</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 100%;
+        padding: 40px;
+        text-align: center;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #667eea;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 2em;
+      }
+
+      .subtitle {
+        color: #666;
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .quote-container {
+        background: #f8f9fa;
+        border-left: 4px solid #667eea;
+        padding: 25px;
+        margin: 30px 0;
+        min-height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+      }
+
+      .quote-text {
+        font-size: 1.3em;
+        color: #333;
+        font-style: italic;
+        line-height: 1.6;
+      }
+
+      .quote-mark {
+        font-size: 3em;
+        color: #667eea;
+        opacity: 0.3;
+        line-height: 0;
+      }
+
+      .button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.1em;
+        border-radius: 50px;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        font-weight: 600;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+      }
+
+      .button:active {
+        transform: translateY(0);
+      }
+
+      .counter {
+        margin-top: 20px;
+        color: #666;
+        font-size: 0.9em;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        h1 {
+          font-size: 1.5em;
+        }
+
+        .quote-text {
+          font-size: 1.1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="matas.png" alt="Brother's Photo" class="profile-image" />
+      <h1>Mato išmonės kampelis!</h1>
+      <p class="subtitle">Filosofas. Hipochondrikas. Legenda.</p>
+
+      <div class="quote-container">
+        <div class="quote-text" id="quote">Spausk žemiau ir sužinok ką Matas turi pasakyti!</div>
+      </div>
+
+      <button class="button" onclick="getRandomQuote()">Noriu gauti Mato išminties!</button>
+
+      <div class="counter">Quote #<span id="counter">0</span></div>
+    </div>
+
+    <script>
+      const quotes = [
+        'Jeigu gyventi, tai tik prie jūros',
+        'Visi mes šitoje ekonomikoje sukamės ir išrašinėjam sąskaitas vieni kitiems',
+        'Tai yra visų mūsų šokis, savaime einantis variklis (apie ekonomiką)',
+        'Aš 30 metų neišsimiegu.',
+        'Šrioderis pardavė Europą rusams.',
+        'Visi mes sėdime kavinėse.',
+        'Svarbiausia turėti virtuvę.',
+        'Aš išsikepu visą viščiuką ir po to verdu sultinį iš likučių.',
+      ];
+
+      let counter = 0;
+
+      function getRandomQuote() {
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quoteElement = document.getElementById('quote');
+        const counterElement = document.getElementById('counter');
+
+        quoteElement.style.opacity = '0';
+
+        setTimeout(() => {
+          quoteElement.textContent = '"' + quotes[randomIndex] + '"';
+          counter++;
+          counterElement.textContent = counter;
+          quoteElement.style.opacity = '1';
+        }, 200);
+      }
+
+      // Smooth opacity transition
+      document.getElementById('quote').style.transition = 'opacity 0.3s ease';
+    </script>
+  </body>
+</html>
